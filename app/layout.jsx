@@ -1,13 +1,13 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Solydos — AI Agent para WhatsApp',
-  description: 'Agentes de soporte con IA para WhatsApp. Firmes por fuera, vivos por dentro.',
+  title: 'Solydos — Agente de IA para WhatsApp',
+  description: 'Solydos es un agente de IA que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="es" className="ed">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
