@@ -2,6 +2,7 @@ import Header from '@/components/ui/Header'
 import Annotation from '@/components/ui/Annotation'
 import Button from '@/components/ui/Button'
 import Icon from '@/components/ui/Icon'
+import MetaLogos from '@/components/ui/MetaLogos'
 import Hero from '@/components/sections/Hero'
 import Steps from '@/components/sections/Steps'
 import Footer from '@/components/sections/Footer'
@@ -20,7 +21,7 @@ export default function Page() {
         <Hero />
         <div className="sd-container">
           <div className="lp-strip" role="list">
-            {HERO.bullets.map((b) => <span key={b} role="listitem"><Annotation>{b}</Annotation></span>)}
+            {HERO.bullets.map((b, i) => <span key={b} role="listitem"><Annotation>{b}</Annotation>{i === 0 && <MetaLogos />}</span>)}
           </div>
         </div>
         <div className="sd-container ed-rule-wrap"><ContourRule /></div>

@@ -5,6 +5,10 @@ const ROCK_SRC = '/brand/solydos-roca.webp'
 const TRACES = ['M292 402H350L372 424V468', 'M282 444H330L346 460H402', 'M318 498V528L340 550H384', 'M262 478H298V522', 'M352 356H390L412 378', 'M244 548L264 568H318', 'M300 300H336L352 316V340']
 const NODES = [[372, 468], [402, 460], [384, 550], [298, 522], [412, 378], [318, 568], [352, 340]]
 
+// Una de cada dos curvas: menos ruido alrededor de la roca. --d = distancia a la curva central (la onda sale de ahí).
+const LINES = geo.contours.filter((_, i) => i % 2 === 0)
+const MID = (LINES.length - 1) / 2
+
 // La roca, las curvas de nivel que fluyen a su alrededor y el núcleo cableado.
 export default function Specimen() {
   const clip = `sd-clip-${useId().replace(/:/g, '')}`
@@ -14,7 +18,7 @@ export default function Specimen() {
       aria-label="Muestra Solydos: piedra con núcleo de circuito y curvas de nivel">
       <defs><clipPath id={clip}><path d={geo.sil} /></clipPath></defs>
       <g className="sd-sp-flow">
-        {geo.contours.map((c, i) => <path key={i} d={c.d} className={c.dot ? 'sd-sp-line sd-sp-dotted' : 'sd-sp-line'} />)}
+        {LINES.map((c, i) => <path key={i} d={c.d} style={{ '--d': Math.abs(i - MID) }} className={c.dot ? 'sd-sp-line sd-sp-dotted' : 'sd-sp-line'} />)}
       </g>
       <image href={ROCK_SRC} x={rx} y={ry} width={rw} height={rh} preserveAspectRatio="none" className="sd-sp-rock" />
       <g clipPath={`url(#${clip})`} className="sd-sp-core">

@@ -13,10 +13,10 @@ const SOLY_NUMBER = process.env.NEXT_PUBLIC_SOLY_WA_NUMBER || '573246800107'
 export const SOLY_URL = `https://wa.me/${SOLY_NUMBER}?text=` + encodeURIComponent('Hola, Soly')
 
 export const HERO = {
-  kicker: 'Solydos · Agentes de IA para WhatsApp',
+  kicker: 'Soly · Agente de IA para tu negocio',
   subtitle:
     'En Solydos creamos a Soly, un agente de IA que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
-  bullets: ['API oficial de WhatsApp', 'Configurado por nosotros', 'Responde 24/7'],
+  bullets: ['API oficial de Meta', 'Implementación a la medida de tu negocio', 'Respuestas 24/7'],
 }
 
 export const PAINS = [
