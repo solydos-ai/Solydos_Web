@@ -1,12 +1,5 @@
 // Copy y datos de la landing. Editar aquí, no en los componentes.
 
-// Número de WhatsApp con indicativo y sin "+". Definir NEXT_PUBLIC_WA_NUMBER en .env.local / CI.
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || '57XXXXXXXXXX'
-
-export const DEMO_URL =
-  `https://wa.me/${WA_NUMBER}?text=` +
-  encodeURIComponent('Hola, quiero agendar una demo de Solydos para mi negocio.')
-
 // WhatsApp de Soly, el agente (lo opera el repo del agente). Es público: va en la página.
 const SOLY_NUMBER = process.env.NEXT_PUBLIC_SOLY_WA_NUMBER || '573246800107'
 
