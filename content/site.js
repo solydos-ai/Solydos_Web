@@ -13,11 +13,34 @@ const SOLY_NUMBER = process.env.NEXT_PUBLIC_SOLY_WA_NUMBER || '573246800107'
 export const SOLY_URL = `https://wa.me/${SOLY_NUMBER}?text=` + encodeURIComponent('Hola, Soly')
 
 export const HERO = {
-  kicker: 'Soly · Agente de IA para tu negocio',
+  // [nombre, qué es]: se muestran en la cápsula del hero con el logo de WhatsApp
+  kicker: ['Soly', 'Agente de IA para tu negocio'],
   subtitle:
     'En Solydos creamos a Soly, un agente de IA que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
-  bullets: ['API oficial de Meta', 'Implementación a la medida de tu negocio', 'Respuestas 24/7'],
 }
+
+// Demo en vivo del cierre: un hotel atendido por Soly de noche. Solo lo que Soly hace hoy (sin agendar).
+export const CHAT = {
+  live: 'En vivo · Soly responde',
+  business: 'Hotel Brisa Marina',
+  initials: 'BM',
+  messages: [
+    { who: 'client', time: '11:47 p. m.', text: 'Hola, ¿tienen habitación doble para este fin de semana?' },
+    { who: 'soly', time: '11:47 p. m.', text: '¡Hola! Sí, nos quedan 2 dobles para viernes y sábado. La noche está en $320.000 con desayuno incluido.' },
+    { who: 'client', time: '11:47 p. m.', text: '¿Puedo llevar a mi perro?' },
+    { who: 'soly', time: '11:47 p. m.', text: 'Claro. Recibimos mascotas pequeñas sin costo adicional.' },
+    { who: 'client', time: '11:48 p. m.', text: 'Perfecto, quiero reservar.' },
+    { who: 'soly', time: '11:48 p. m.', text: '¡Listo! Te paso con recepción para confirmar. Ya tienen tus fechas y te escriben en unos minutos.' },
+    { who: 'handoff', text: 'Pasada a recepción · con contexto' },
+  ],
+}
+
+// Garantías bajo el hero: [rótulo, título, texto]. La primera lleva los logos de Meta.
+export const GUARANTEES = [
+  ['Conexión', 'API oficial de Meta', 'Tu WhatsApp conectado por el canal oficial de Meta, no por atajos.'],
+  ['Implementación', 'A la medida de tu negocio', 'Lo configuramos con tus productos, precios, horarios y reglas de atención.'],
+  ['Disponibilidad', 'Respuestas 24/7', 'Tus clientes reciben respuesta de noche, en fines de semana y festivos.'],
+]
 
 export const PAINS = [
   ['Responder tarde cuesta ventas.', 'Si no contestas rápido, el cliente le escribe al de al lado.'],

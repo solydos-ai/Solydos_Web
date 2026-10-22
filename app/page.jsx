@@ -1,13 +1,13 @@
 import Header from '@/components/ui/Header'
-import Annotation from '@/components/ui/Annotation'
 import Button from '@/components/ui/Button'
 import Icon from '@/components/ui/Icon'
-import MetaLogos from '@/components/ui/MetaLogos'
+import WhatsAppLogo from '@/components/ui/WhatsAppLogo'
 import Hero from '@/components/sections/Hero'
 import Steps from '@/components/sections/Steps'
 import Footer from '@/components/sections/Footer'
-import { ContourField, ContourRule, Station, Summit } from '@/components/sections/Decor'
-import { DEMO_URL, HERO, PAINS, SOLVE } from '@/content/site'
+import ChatDemo from '@/components/sections/ChatDemo'
+import { ContourField, ContourRule, Station } from '@/components/sections/Decor'
+import { GUARANTEES, PAINS, SOLVE, SOLY_URL } from '@/content/site'
 
 const Accent = ({ children }) => <span className="lp-accent">{children}</span>
 
@@ -16,13 +16,19 @@ export default function Page() {
     <div className="ed-page">
       <ContourField />
       <a className="ed-skip" href="#contenido">Saltar al contenido</a>
-      <Header cta={{ label: 'Agenda una demo', href: DEMO_URL }} />
+      <Header cta={{ label: 'Login', href: 'https://app.solydos.com/' }} />
       <main id="contenido">
         <Hero />
         <div className="sd-container">
-          <div className="lp-strip" role="list">
-            {HERO.bullets.map((b, i) => <span key={b} role="listitem"><Annotation>{b}</Annotation>{i === 0 && <MetaLogos />}</span>)}
-          </div>
+          <ul className="lp-guar">
+            {GUARANTEES.map(([label, title, text], i) => (
+              <li key={title} className="lp-guar-item">
+                <span className="lp-guar-label"><b>0{i + 1}</b>{label}</span>
+                <h3 className="lp-guar-title">{title}{i === 0 && <WhatsAppLogo />}</h3>
+                <p className="lp-guar-text">{text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="sd-container ed-rule-wrap"><ContourRule /></div>
 
@@ -64,10 +70,12 @@ export default function Page() {
               <div className="ed-cta-copy">
                 <Station code="E·03b" label="Empieza" />
                 <h2 className="ed-cta-title">Pon a <span>Soly</span> a responder tu WhatsApp.</h2>
-                <p className="ed-sub">Agenda una demo con Solydos y verás a Soly respondiendo con ejemplos reales de tu negocio.</p>
-                <Button href={DEMO_URL} icon="arrow" target="_blank" rel="noopener">Agenda una demo</Button>
+                <p className="ed-sub">Son las 11:47 p. m. y la recepción del hotel ya cerró. Soly no: responde precios y dudas al instante, y le pasa la reserva a tu equipo con todo el contexto.</p>
+                <div className="ed-cta-actions">
+                  <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
+                </div>
               </div>
-              <Summit />
+              <ChatDemo />
             </div></div>
           </div></div>
         </section>

@@ -1,7 +1,5 @@
 'use client'
 import field from '@/data/field.json'
-import geo from '@/data/geo.json'
-import useInView from '@/hooks/useInView'
 
 // Curvas de nivel fijas al fondo de toda la página.
 export function ContourField() {
@@ -27,23 +25,4 @@ export function ContourRule() {
 
 export function Station({ code, label }) {
   return <p className="ed-station"><b>{code}</b> / {label}</p>
-}
-
-// Cima de la roca vista desde arriba (curvas del logo); se dibuja al entrar en pantalla.
-export function Summit() {
-  const [ref, seen] = useInView()
-  return (
-    <figure ref={ref} className={`ed-cta-fig${seen ? ' is-in' : ''}`}>
-      <svg viewBox="-10 -10 52 52" role="img" aria-label="Cima de la roca Solydos en curvas de nivel">
-        <circle className="ed-summit-ring" cx="16" cy="16" r="19" />
-        <circle className="ed-summit-ring" cx="16" cy="16" r="24" />
-        <path className="ed-summit-tick" d="M16 -9v4M16 37v4M-9 16h4M37 16h4" />
-        {geo.loops.map((d, i) => (
-          <path key={i} d={d} pathLength={i === 0 ? undefined : 1} className={`ed-summit-loop${i === 0 ? ' is-dot' : ' is-draw'}`} />
-        ))}
-        <circle className="ed-summit-pt" cx="17.6" cy="14.9" r="1.6" />
-      </svg>
-      <figcaption>Cima · Solydos</figcaption>
-    </figure>
-  )
 }
