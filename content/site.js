@@ -35,27 +35,22 @@ export const CHAT = {
   ],
 }
 
-// Garantías bajo el hero: [rótulo, título, texto]. La primera lleva los logos de Meta.
+// Garantías bajo el hero: [rótulo, título, texto]. La primera lleva el logo de WhatsApp.
 export const GUARANTEES = [
   ['Conexión', 'API oficial de Meta', 'Tu WhatsApp conectado por el canal oficial de Meta, no por atajos.'],
   ['Implementación', 'A la medida de tu negocio', 'Lo configuramos con tus productos, precios, horarios y reglas de atención.'],
   ['Disponibilidad', 'Respuestas 24/7', 'Tus clientes reciben respuesta de noche, en fines de semana y festivos.'],
 ]
 
+// El reto: cada dolor con una cifra real, su fuente y cómo lo resuelve Soly. No inventar cifras de Soly hasta tener datos propios.
 export const PAINS = [
-  ['Responder tarde cuesta ventas.', 'Si no contestas rápido, el cliente le escribe al de al lado.'],
-  ['Las mismas preguntas, todo el día.', 'Precios, horarios, disponibilidad: lo mismo una y otra vez.'],
-  ['De noche y fines de semana, nadie contesta.', 'Pero los clientes siguen escribiendo.'],
-]
-
-export const SOLVE = [
-  'Responde las consultas frecuentes al instante.',
-  'Da precios, horarios y disponibilidad según lo que le cargues.',
-  'Sabe cuándo pasarle la conversación a tu equipo.',
+  { value: '7x', title: 'Responder tarde cuesta ventas.', text: 'Quien responde en la primera hora tiene 7 veces más oportunidades de vender. El que tarda, se la regala al de al lado.', source: 'Harvard Business Review', fix: 'Responde en segundos, a todos a la vez.' },
+  { value: '73%', title: 'Las mismas preguntas, todo el día.', text: 'El 73% de las personas prefiere escribirle a un negocio antes que llamar. Y casi todas preguntan lo mismo: precios, horarios, disponibilidad.', source: 'Meta y Kantar, 2025', fix: 'Se sabe tus precios, horarios y políticas.' },
+  { value: '72%', title: 'De noche y fines de semana, nadie contesta.', text: 'Pero el 72% le compra más fácil a quien sí le responde por chat. Tus clientes siguen escribiendo cuando tú ya cerraste.', source: 'Meta y Kantar, 2025', fix: 'Atiende de noche, festivos y fines de semana.' },
 ]
 
 export const STEPS = [
-  ['01', 'Nos cuentas de tu negocio.', 'Una conversación corta: qué vendes, tus precios, tus preguntas típicas.'],
-  ['02', 'Entrenamos a Soly.', 'Lo cargamos con tu información y le damos tus reglas de atención.'],
-  ['03', 'Soly entra en turno.', 'Lo conectamos a tu WhatsApp y empieza a responder a tus clientes.'],
+  ['01', 'Nos cuentas de tu negocio.', 'Una llamada corta: qué vendes, qué te preguntan siempre y qué no debe responder Soly.'],
+  ['02', 'Lo probamos contigo.', 'Le hacemos las preguntas reales de tus clientes hasta que responda como tú quieres.'],
+  ['03', 'Soly entra en turno.', 'Lo activamos en tu WhatsApp y lo ajustamos con las primeras conversaciones.'],
 ]
