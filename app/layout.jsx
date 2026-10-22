@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Solydos — Agente de IA para WhatsApp',
-  description: 'Solydos es un agente de IA que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
+  title: 'Solydos — Soly, tu agente de IA para WhatsApp',
+  description: 'Soly es el agente de IA de Solydos que atiende a tus clientes por WhatsApp que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
 }
 
 export default function RootLayout({ children }) {

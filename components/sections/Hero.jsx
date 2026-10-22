@@ -1,5 +1,5 @@
 import Button from '../ui/Button'
-import HeroDemo from './HeroDemo'
+import HeroSoly from './HeroSoly'
 import { DEMO_URL, HERO } from '@/content/site'
 
 export default function Hero() {
@@ -12,10 +12,9 @@ export default function Hero() {
           <p className="sd-hero-subtitle">{HERO.subtitle}</p>
           <div className="sd-hero-actions">
             <Button href={DEMO_URL} icon="arrow" target="_blank" rel="noopener">Agenda una demo</Button>
-            <Button variant="secondary" href="#demo">Míralo funcionar</Button>
           </div>
         </div>
-        <div className="sd-hero-media"><div id="demo"><HeroDemo /></div></div>
+        <div className="sd-hero-media"><HeroSoly /></div>
       </div>
     </section>
   )

@@ -43,7 +43,7 @@ export default function Page() {
             </div>
             <div className="ed-solve">
               <Station code="E·02b" label="La solución" />
-              <h2 className="ed-title">Solydos atiende por ti, con la <Accent>voz de tu negocio.</Accent></h2>
+              <h2 className="ed-title">Soly atiende por ti, con la <Accent>voz de tu negocio.</Accent></h2>
               <div>
                 <p className="ed-sub">Un agente de IA conectado a tu WhatsApp. Responde con tu información y tus reglas. Y cuando algo necesita una persona, le pasa la conversación a tu equipo.</p>
                 <ul className="ed-list">{SOLVE.map((t) => <li key={t}>{t}</li>)}</ul>
@@ -62,8 +62,8 @@ export default function Page() {
             <div className="ed-cta"><div className="ed-cta-inner">
               <div className="ed-cta-copy">
                 <Station code="E·03b" label="Empieza" />
-                <h2 className="ed-cta-title">Pon a <span>Solydos</span> a responder tu WhatsApp.</h2>
-                <p className="ed-sub">Agenda una demo y verás tu propio agente respondiendo, con ejemplos reales de tu negocio.</p>
+                <h2 className="ed-cta-title">Pon a <span>Soly</span> a responder tu WhatsApp.</h2>
+                <p className="ed-sub">Agenda una demo con Solydos y verás a Soly respondiendo con ejemplos reales de tu negocio.</p>
                 <Button href={DEMO_URL} icon="arrow" target="_blank" rel="noopener">Agenda una demo</Button>
               </div>
               <Summit />
