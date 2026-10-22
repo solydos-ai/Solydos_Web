@@ -1,5 +1,6 @@
 import Header from '@/components/ui/Header'
 import Button from '@/components/ui/Button'
+import Icon from '@/components/ui/Icon'
 import WhatsAppLogo from '@/components/ui/WhatsAppLogo'
 import Hero from '@/components/sections/Hero'
 import Steps from '@/components/sections/Steps'
@@ -37,8 +38,9 @@ export default function Page() {
           <Marquee />
           <div className="sd-container"><div className="ed-rail">
             <Station code="E·02" label="El reto" />
-            <div className="ed-head">
-              <p className="ed-sub ed-lead">Tus clientes ya eligieron el chat. Lo que decide la venta es qué tan rápido les respondes, estudios lo demuestran.</p>
+            <div className="lp-reto-head">
+              <p className="lp-reto-title">Tus clientes ya eligieron el <Accent>chat.</Accent></p>
+              <p className="lp-reto-sub">Lo que decide la venta es qué tan rápido les respondes, estudios lo demuestran.<Icon name="down" size={14} /></p>
             </div>
             <Pains />
           </div></div>
@@ -51,7 +53,7 @@ export default function Page() {
             <div className="ed-cta"><div className="ed-cta-inner">
               <div className="ed-cta-copy">
                 <Station code="E·03" label="Empieza" />
-                <h2 className="ed-cta-title">Pon a <span>Soly</span> a responder tu WhatsApp.</h2>
+                <h2 className="ed-cta-title">Mira a <span>Soly</span> respondiendo por ti.</h2>
                 <p className="ed-sub">Son las 11:47 p. m. y la recepción del hotel ya cerró. Soly no: responde precios y dudas al instante, y le pasa la reserva a tu equipo con todo el contexto.</p>
                 <div className="ed-cta-actions">
                   <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>

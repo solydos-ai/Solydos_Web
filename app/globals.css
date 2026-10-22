@@ -141,15 +141,17 @@ html.ed body { background:var(--background); }
 @media (min-width:1024px) {
 .v3-hero .sd-hero-grid { grid-template-columns:minmax(0,6fr) minmax(0,5fr); }
 }
-html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
+/* Escala tipográfica única de la página */
+html.ed { --t-hero:clamp(44px, 5.4vw, 80px); --t-section:clamp(32px, 3.4vw, 48px); --t-band:clamp(24px, 2.6vw, 36px); --t-block:clamp(20px, 1.7vw, 24px); --t-num:clamp(44px, 4.2vw, 60px); --t-lead:clamp(16px, 1.2vw, 18px); --t-body:15px; --t-small:13px; }
+html.ed .sd-hero { --hero-title:var(--t-hero); --hero-subtitle:var(--t-lead); }
 /* Garantías bajo el hero: tres estaciones separadas por traverse punteada */
 .lp-guar { list-style:none; margin:0; padding:0; display:grid; border-block:1px solid var(--border); }
 .lp-guar-item { display:flex; flex-direction:column; gap:var(--space-2); padding-block:var(--space-6); }
 .lp-guar-item + .lp-guar-item { border-top:1.5px dotted var(--border-strong); }
 .lp-guar-label { display:flex; align-items:center; gap:var(--space-2); font-family:var(--font-mono); font-size:11px; line-height:16px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
 .lp-guar-label b { color:var(--signal); font-weight:600; }
-.lp-guar-title { margin:var(--space-2) 0 0; display:flex; align-items:center; gap:var(--space-3); font-family:var(--font-display); font-weight:400; font-size:26px; line-height:1.1; text-transform:uppercase; color:var(--text-primary); }
-.lp-guar-text { margin:0; font-size:15px; line-height:1.6; color:var(--text-secondary); max-width:34ch; }
+.lp-guar-title { margin:var(--space-2) 0 0; display:flex; align-items:center; gap:var(--space-3); font-family:var(--font-display); font-weight:400; font-size:var(--t-block); line-height:1.1; text-transform:uppercase; color:var(--text-primary); }
+.lp-guar-text { margin:0; font-size:var(--t-body); line-height:1.6; color:var(--text-secondary); max-width:34ch; }
 .lp-wa-logo { display:block; flex:none; }
 /* Rótulo del hero como cápsula: Soly + WhatsApp | qué es */
 .lp-kicker { display:inline-flex; align-self:flex-start; align-items:center; gap:var(--space-2); padding:6px 14px 6px 8px; border:1px solid var(--border-strong); border-radius:var(--radius-full); background:var(--surface); color:var(--text-secondary); }
@@ -185,7 +187,7 @@ html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
 @media (min-width:768px) {
 .ed-station { margin-left:-54px; }
 }
-.ed-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(38px, 4.8vw, 68px); line-height:1.04; letter-spacing:-.005em; text-transform:uppercase; color:var(--text-primary); max-width:18ch; }
+.ed-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:var(--t-section); line-height:1.05; letter-spacing:-.005em; text-transform:uppercase; color:var(--text-primary); max-width:24ch; }
 .ed-sub { margin:var(--space-6) 0 0; font-size:17px; line-height:1.6; color:var(--text-secondary); max-width:52ch; }
 .ed-head { margin-bottom:var(--space-12); }
 /* Letrero que pasa: banda negra con el título del reto en hueso */
@@ -196,24 +198,31 @@ html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
 }
 :root[data-theme="dark"] :is(.lp-band, .lp-row-fix) { --band-bg:var(--stone-core); --band-ink:var(--text-primary); }
 .lp-band-track { display:flex; width:max-content; }
-.lp-band-item { margin:0; display:flex; align-items:center; gap:var(--space-8); padding:20px var(--space-8) 20px 0; font-family:var(--font-display); font-weight:400; font-size:clamp(26px, 3vw, 40px); line-height:1; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap; color:var(--band-ink); }
+.lp-band-item { margin:0; display:flex; align-items:center; gap:var(--space-8); padding:18px var(--space-8) 18px 0; font-family:var(--font-display); font-weight:400; font-size:var(--t-band); line-height:1; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap; color:var(--band-ink); }
 .lp-band-item em { font-style:normal; color:var(--signal-on-stone); }
 .lp-band-item::after { content:""; flex:none; width:10px; height:10px; border:1.5px solid var(--signal-on-stone); }
-.ed-lead { margin-top:0; font-size:clamp(18px, 1.6vw, 22px); line-height:1.5; color:var(--text-primary); max-width:44ch; }
+/* Encabezado de la tabla del reto: alineado con las columnas de las filas */
+.lp-reto-head { display:grid; gap:var(--space-4); padding-bottom:var(--space-8); }
+.lp-reto-title { margin:0; font-family:var(--font-display); font-size:var(--t-section); line-height:1.05; text-transform:uppercase; color:var(--text-primary); max-width:16ch; }
+.lp-reto-sub { margin:0; font-size:var(--t-lead); line-height:1.55; color:var(--text-secondary); max-width:34ch; }
+.lp-reto-sub svg { display:inline-block; margin-left:var(--space-2); vertical-align:-1px; color:var(--signal); }
+@media (min-width:900px) {
+.lp-reto-head { grid-template-columns:minmax(0, 1fr) minmax(280px, 360px); column-gap:var(--space-12); align-items:end; }
+}
 /* El reto: filas tipo tabla de levantamiento — cifra · problema · respuesta de Soly en bloque negro */
 .lp-rows { list-style:none; margin:0; padding:0; border-top:1px solid var(--text-primary); }
 .lp-row { display:grid; gap:var(--space-6); padding-block:var(--space-8); border-bottom:1.5px dotted var(--border-strong); align-items:center; }
-.lp-row-n { font-family:var(--font-display); font-size:clamp(64px, 6.4vw, 96px); line-height:.9; color:var(--signal); font-variant-numeric:tabular-nums; }
-.lp-row-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(24px, 2.2vw, 30px); line-height:1.08; text-transform:uppercase; color:var(--text-primary); }
-.lp-row-text { margin:var(--space-3) 0 0; font-size:16px; line-height:1.6; color:var(--text-secondary); max-width:52ch; }
-.lp-row-src { margin:var(--space-2) 0 0; font-size:13px; line-height:1.4; color:var(--text-muted); }
+.lp-row-n { font-family:var(--font-display); font-size:var(--t-num); line-height:1; color:var(--signal); font-variant-numeric:tabular-nums; }
+.lp-row-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:var(--t-block); line-height:1.1; text-transform:uppercase; color:var(--text-primary); }
+.lp-row-text { margin:var(--space-3) 0 0; font-size:var(--t-body); line-height:1.6; color:var(--text-secondary); max-width:52ch; }
+.lp-row-src { margin:var(--space-2) 0 0; font-size:var(--t-small); line-height:1.4; color:var(--text-muted); }
 .lp-row-fix { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6) var(--space-8); background:var(--band-bg); color:var(--band-ink); }
 .lp-row-fix small { display:flex; align-items:center; gap:var(--space-2); font-family:var(--font-mono); font-size:11px; line-height:16px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--signal-on-stone); }
 .lp-row-fix small svg { transform:rotate(180deg); transition:transform var(--duration) cubic-bezier(.2,.7,.2,1); }
 .lp-row:hover .lp-row-fix small svg { transform:rotate(180deg) translateY(4px); }
-.lp-row-fix strong { font-family:var(--font-display); font-weight:400; font-size:clamp(22px, 2vw, 26px); line-height:1.15; text-transform:uppercase; }
+.lp-row-fix strong { font-family:var(--font-display); font-weight:400; font-size:var(--t-block); line-height:1.15; text-transform:uppercase; }
 @media (min-width:900px) {
-.lp-row { grid-template-columns:minmax(150px, 200px) minmax(0, 1fr) minmax(280px, 360px); column-gap:var(--space-12); }
+.lp-row { grid-template-columns:minmax(120px, 160px) minmax(0, 1fr) minmax(280px, 360px); column-gap:var(--space-12); }
 }
 .ed-steps .lp-steps { position:relative; border-top:0; padding-top:0; }
 .ed-steps .lp-steps::before { content:""; position:absolute; left:0; right:0; top:0; border-top:1.5px dotted var(--signal); transform-origin:left center; }
@@ -240,8 +249,8 @@ html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
 .ed-steps .lp-step:nth-child(3)::before { top:38px; }
 }
 .ed-steps.is-in .lp-step::before { background:var(--signal); }
-.ed-steps .lp-step-n { font-size:64px; }
-.ed-steps .lp-step h3 { font-size:24px; }
+.ed-steps .lp-step-n { font-size:var(--t-num); }
+.ed-steps .lp-step h3 { font-size:var(--t-block); }
 .ed-next { margin-top:var(--space-24); }
 .ed-cta { border:1px solid var(--text-primary); padding:6px; background:var(--surface); }
 .ed-cta-inner { border:1px solid var(--border); display:grid; gap:var(--space-8); padding:var(--space-8) var(--space-6); }
@@ -249,9 +258,9 @@ html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
 .ed-cta-inner { grid-template-columns:7fr 5fr; align-items:center; padding:var(--space-12); column-gap:var(--space-12); }
 }
 .ed-cta-copy .ed-station { margin-left:0; margin-bottom:var(--space-6); }
-.ed-cta-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(34px, 4.2vw, 58px); line-height:1.04; text-transform:uppercase; color:var(--text-primary); max-width:14ch; }
+.ed-cta-title { margin:0; font-family:var(--font-display); font-weight:400; font-size:var(--t-section); line-height:1.05; text-transform:uppercase; color:var(--text-primary); max-width:14ch; }
 .ed-cta-title span { color:var(--signal); }
-.ed-cta-copy .ed-sub { font-size:16px; max-width:40ch; }
+.ed-cta-copy .ed-sub { font-size:var(--t-lead); max-width:40ch; }
 .ed-cta-actions { display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-8); }
 /* Demo en vivo del cierre: chat tipo WhatsApp */
 .lp-chat-wrap { display:flex; flex-direction:column; gap:var(--space-3); min-width:0; }
@@ -293,10 +302,10 @@ html.ed .sd-hero { --hero-title: clamp(46px, 6.4vw, 100px); }
 }
 .v3-footer { border-top:1px solid var(--text-primary); padding:var(--space-12) 0; }
 .v3-footer-inner { display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-4) var(--space-6); }
-.v3-footer-line { margin:0; font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
-.v3-footer-contact { margin-left:auto; font-family:var(--font-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-primary); text-decoration:none; }
+.v3-footer-line { margin:0; font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
+.v3-footer-contact { margin-left:auto; font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-primary); text-decoration:none; }
 .v3-footer-contact:hover { color:var(--signal); }
-.ed-demo-label { margin:0; font-family:var(--font-mono); font-size:11px; line-height:16px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.ed-demo-label { margin:0; font-family:var(--font-mono); font-size:11px; line-height:16px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
 .lp-demo-stage { margin-top:0; }
 .ed-skip { position:absolute; left:16px; top:-48px; z-index:20; padding:10px 16px; background:var(--primary); color:var(--on-primary); font-family:var(--font-mono); font-size:12px; text-decoration:none; }
 .ed-skip:focus { top:12px; }
