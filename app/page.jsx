@@ -18,7 +18,7 @@ export default function Page() {
     <div className="ed-page">
       <ContourField />
       <a className="ed-skip" href="#contenido">Saltar al contenido</a>
-      <Header cta={{ label: 'Login', href: 'https://app.solydos.com/' }} />
+      <Header cta={{ label: 'Ingresar', href: 'https://app.solydos.com/' }} />
       <main id="contenido">
         <Hero />
         <div className="sd-container">
@@ -65,6 +65,10 @@ export default function Page() {
               <Station code="E·04" label="Cómo funciona" />
               <div className="ed-head"><h2 className="ed-title">Tú no configuras nada.<br />Nosotros lo dejamos listo.</h2></div>
               <Steps />
+              <div className="ed-end">
+                <p className="ed-end-text">Ya llegaste a la cima. <span>Ahora háblale a Soly.</span></p>
+                <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
+              </div>
             </div>
           </div></div>
         </section>

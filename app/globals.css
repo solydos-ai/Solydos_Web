@@ -191,12 +191,12 @@ html.ed .sd-hero { --hero-title:var(--t-hero); --hero-subtitle:var(--t-lead); }
 .ed-sub { margin:var(--space-6) 0 0; font-size:17px; line-height:1.6; color:var(--text-secondary); max-width:52ch; }
 .ed-head { margin-bottom:var(--space-12); }
 /* Letrero que pasa: banda negra con el título del reto en hueso */
-.lp-band, .lp-row-fix { --band-bg:var(--text-primary); --band-ink:var(--background); }
+.lp-band, .lp-row-fix, .ed-end { --band-bg:var(--text-primary); --band-ink:var(--background); }
 .lp-band { margin:0 0 var(--space-16); overflow:hidden; background:var(--band-bg); }
 @media (prefers-color-scheme: dark) {
-:root:not([data-theme="light"]) :is(.lp-band, .lp-row-fix) { --band-bg:var(--stone-core); --band-ink:var(--text-primary); }
+:root:not([data-theme="light"]) :is(.lp-band, .lp-row-fix, .ed-end) { --band-bg:var(--stone-core); --band-ink:var(--text-primary); }
 }
-:root[data-theme="dark"] :is(.lp-band, .lp-row-fix) { --band-bg:var(--stone-core); --band-ink:var(--text-primary); }
+:root[data-theme="dark"] :is(.lp-band, .lp-row-fix, .ed-end) { --band-bg:var(--stone-core); --band-ink:var(--text-primary); }
 .lp-band-track { display:flex; width:max-content; }
 .lp-band-item { margin:0; display:flex; align-items:center; gap:var(--space-8); padding:18px var(--space-8) 18px 0; font-family:var(--font-display); font-weight:400; font-size:var(--t-band); line-height:1; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap; color:var(--band-ink); }
 .lp-band-item em { font-style:normal; color:var(--signal-on-stone); }
@@ -252,6 +252,12 @@ html.ed .sd-hero { --hero-title:var(--t-hero); --hero-subtitle:var(--t-lead); }
 .ed-steps .lp-step-n { font-size:var(--t-num); }
 .ed-steps .lp-step h3 { font-size:var(--t-block); }
 .ed-next { margin-top:var(--space-24); }
+/* Cierre de la página: un último llamado bajo la montaña */
+.ed-end { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-6); margin-top:var(--space-12); padding:var(--space-6) var(--space-8); background:var(--band-bg); color:var(--band-ink); }
+.ed-end-text { margin:0; font-family:var(--font-display); font-size:var(--t-block); line-height:1.15; text-transform:uppercase; }
+.ed-end-text span { color:var(--signal-on-stone); }
+.ed-end .sd-btn-primary { background:var(--band-ink); color:var(--band-bg); }
+.ed-end .sd-btn-primary:hover { background:var(--signal-on-stone); color:var(--band-bg); }
 .ed-cta { border:1px solid var(--text-primary); padding:6px; background:var(--surface); }
 .ed-cta-inner { border:1px solid var(--border); display:grid; gap:var(--space-8); padding:var(--space-8) var(--space-6); }
 @media (min-width:900px) {

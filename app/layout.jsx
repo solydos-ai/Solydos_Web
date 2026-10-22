@@ -1,8 +1,23 @@
 import './globals.css'
 
+const title = 'Solydos — Soly, tu agente de IA para WhatsApp'
+const description = 'Soly es el agente de IA de Solydos que atiende a tus clientes por WhatsApp con la información de tu negocio, de día y de noche. Nosotros lo configuramos y lo entrenamos por ti.'
+
 export const metadata = {
-  title: 'Solydos — Soly, tu agente de IA para WhatsApp',
-  description: 'Soly es el agente de IA de Solydos que atiende a tus clientes por WhatsApp que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
+  metadataBase: new URL('https://solydos.com'),
+  title,
+  description,
+  // Vista previa al compartir el enlace (WhatsApp, LinkedIn, Facebook, X)
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Solydos',
+    locale: 'es_CO',
+    title,
+    description,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Soly, agente de IA para tu negocio: Tu WhatsApp, vivo 24/7.' }],
+  },
+  twitter: { card: 'summary_large_image', title, description, images: ['/og.png'] },
 }
 
 export default function RootLayout({ children }) {
