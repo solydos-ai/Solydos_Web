@@ -1,5 +1,6 @@
 import Specimen from '../ui/Specimen'
 import Button from '../ui/Button'
+import PauseOffscreen from '../ui/PauseOffscreen'
 import { SOLY_URL } from '@/content/site'
 
 // Burbujas de "escribiendo…" alrededor de la roca: la roca habla.
@@ -7,8 +8,9 @@ const TALK = [{ left: '0%', top: '20%' }, { right: '0%', top: '38%' }, { left: '
 
 // La roca viva y la invitación a escribirle a Soly. Al pasar por el botón, la roca se enciende.
 export default function HeroSoly() {
+  // Fuera de pantalla las animaciones de la roca se pausan: no gastan batería ni traban el scroll en el celular
   return (
-    <div className="lp-demo">
+    <PauseOffscreen className="lp-demo">
       <div className="lp-demo-stage">
         <Specimen />
         <span className="ed-pulse" aria-hidden="true" />
@@ -20,6 +22,6 @@ export default function HeroSoly() {
         <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
         <p className="lp-soly-help">Escríbele por WhatsApp como lo haría uno de tus clientes.</p>
       </div>
-    </div>
+    </PauseOffscreen>
   )
 }

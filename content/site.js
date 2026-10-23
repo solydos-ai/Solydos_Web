@@ -45,5 +45,23 @@ export const PAINS = [
 export const STEPS = [
   ['01', 'Nos cuentas de tu negocio.', 'Una llamada corta: qué vendes, qué te preguntan siempre y qué no debe responder Soly.'],
   ['02', 'Lo probamos contigo.', 'Le hacemos las preguntas reales de tus clientes hasta que responda como tú quieres.'],
-  ['03', 'Soly entra en turno.', 'Lo activamos en tu WhatsApp y lo ajustamos con las primeras conversaciones.'],
+  ['03', 'Soly entra en turno.', 'Lo activamos en tu WhatsApp y lo ves trabajar desde tu panel.'],
 ]
+
+
+// Mini panel en vivo bajo el paso 03 (ejemplo, el mismo hotel de la demo): lo que Soly va haciendo y tú ves en tu panel.
+// Cada aviso suma a un contador (stat). El último pide tu acción y va resaltado.
+export const PANEL_LIVE = {
+  url: 'app.solydos.com',
+  stats: [
+    { key: 'chat', label: 'Respondidos', base: 11 },
+    { key: 'calendar', label: 'Citas', base: 2 },
+    { key: 'flame', label: 'Prospectos', base: 3 },
+  ],
+  feed: [
+    { icon: 'chat', time: '11:48 p. m.', text: 'Respondió precios y horarios a +57 300 ··· 4521' },
+    { icon: 'calendar', time: '11:48 p. m.', text: 'Agendó una cita para el viernes a las 3:00 p. m.' },
+    { icon: 'flame', time: '11:49 p. m.', text: 'Prospecto caliente: quiere la doble del fin de semana' },
+    { icon: 'person', time: 'Te espera', text: 'Te pasó un chat con el resumen listo' },
+  ],
+}

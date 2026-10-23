@@ -1,0 +1,12 @@
+# Cabeceras de caché de Amplify. Los archivos de /_next/static llevan un hash en el nombre:
+# cambian de nombre en cada versión, así que el navegador los guarda un año sin volver a pedirlos.
+# Las imágenes de /brand y la vista previa se guardan un día.
+customHeaders:
+  - pattern: '/_next/static/**/*'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=31536000, immutable
+  - pattern: '/brand/*'
+    headers:
+      - key: Cache-Control
+        value: public, max-age=86400

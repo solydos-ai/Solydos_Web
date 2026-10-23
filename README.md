@@ -22,17 +22,19 @@ npm run build                # genera ./out
 ## Estructura
 
 ```
-app/            layout (metadatos y vista previa al compartir), page (composición de la landing),
-                globals.css (tokens y estilos), icon.svg
+app/            layout (fuentes, metadatos y vista previa al compartir), page (composición de la landing),
+                globals.css (tokens y estilos), icon.svg, robots.js y sitemap.js
 components/
-  ui/           piezas reutilizables: Logo, Button, Header, Icon, Annotation, Specimen, WhatsAppLogo
-  sections/     bloques de la página: Hero, HeroSoly, ChatDemo, Pains, Marquee, Steps, Footer,
+  ui/           piezas reutilizables: Logo, Button, Header (con StickyHeader), Icon, Annotation, Specimen,
+                WhatsAppLogo, PauseOffscreen (pausa animaciones fuera de pantalla)
+  sections/     bloques de la página: Hero, HeroSoly, ChatDemo (estilo iPhone o Android según el teléfono),
+                Pains, Marquee, Steps (la montaña) con LivePanel (el panel en vivo del paso 03), Footer,
                 Decor (curvas de nivel, estaciones, divisores)
 content/site.js todos los textos: hero, garantías, retos con sus cifras y fuentes, pasos,
-                la conversación de la demo y el enlace de WhatsApp
+                la conversación de la demo, el panel en vivo y el enlace de WhatsApp
 data/           geometría de la roca y de las curvas de fondo (JSON)
 hooks/          useInView (activa las animaciones al entrar en pantalla)
-public/         og.png (vista previa) y brand/solydos-roca.webp
+public/         og.png (vista previa) y brand/solydos-roca.webp (420px de ancho; basta para pantallas 3x)
 ```
 
 El copy se edita en `content/site.js`, no en los componentes.
@@ -44,6 +46,8 @@ La web se publica en **AWS Amplify**, no en S3 ni en CloudFront.
 1. Un push a `main` dispara un webhook de Amplify.
 2. Amplify ejecuta lo que dice `amplify.yml`: `npm ci`, `npm run lint` y `npm run build`, y publica la carpeta `out/`.
 3. En unos 2 minutos queda publicada en `solydos.com`. Si el build falla, la versión anterior sigue en línea.
+
+`customHttp.yml` fija la caché: los archivos de `/_next/static` (con hash en el nombre) se guardan un año y las imágenes de `/brand`, un día.
 
 `www.solydos.com` redirige con un 301 a `solydos.com`. La regla está en las redirecciones de la app de Amplify.
 
