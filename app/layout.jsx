@@ -28,8 +28,11 @@ export const metadata = {
   alternates: { canonical: '/' },
 }
 
-// Color de la barra del navegador en móvil, en cada tema (--background)
+// Color de la barra del navegador en móvil, en cada tema (--background).
+// colorScheme anuncia que la página tiene tema claro y oscuro propios: así Samsung Internet y el modo oscuro
+// automático de Chrome en Android no la oscurecen a la fuerza con sus propios colores.
 export const viewport = {
+  colorScheme: 'light dark',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f4f2ed' },
     { media: '(prefers-color-scheme: dark)', color: '#121211' },
