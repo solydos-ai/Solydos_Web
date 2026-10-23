@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import useInView from '@/hooks/useInView'
+import useVisible from '@/hooks/useVisible'
 import { CHAT } from '@/content/site'
 
 const WAIT = { soly: 1700, handoff: 900 }
@@ -25,17 +25,17 @@ const PATHS = {
 }
 const I = ({ name }) => <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d={PATHS[name]} fill="currentColor" /></svg>
 
-// Conversación de ejemplo con aspecto de chat de WhatsApp: se reproduce sola al entrar en pantalla y vuelve a empezar.
+// Conversación de ejemplo con aspecto de chat de WhatsApp: se escribe sola mientras está en pantalla, se vacía al salir y vuelve a empezar.
 // El cliente escribe su mensaje letra por letra en la barra de abajo antes de enviarlo.
 export default function ChatDemo() {
-  const [ref, seen] = useInView()
+  const [ref, seen] = useVisible(0.35)
   const [n, setN] = useState(0)
   const [typing, setTyping] = useState(false)
   const [draft, setDraft] = useState('')
 
   useEffect(() => {
-    if (!seen) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setN(CHAT.messages.length); return }
+    // Al salir de pantalla se vacía; al volver a entrar se escribe otra vez desde el principio. No usa timers mientras no se ve.
+    if (!seen) { setN(0); setTyping(false); setDraft(''); return }
     let t
     const m = CHAT.messages[n]
     if (!m) t = setTimeout(() => setN(0), 6000)
