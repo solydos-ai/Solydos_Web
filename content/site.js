@@ -20,9 +20,9 @@ export const CHAT = {
   messages: [
     { who: 'client', time: '11:47 p. m.', text: 'Hola, ¿tienen habitación doble para este fin de semana?' },
     { who: 'soly', time: '11:47 p. m.', text: '¡Hola! Sí, nos quedan 2 dobles para viernes y sábado. La noche está en $320.000 con desayuno incluido.' },
-    { who: 'client', time: '11:47 p. m.', text: '¿Puedo llevar a mi perro?' },
-    { who: 'soly', time: '11:47 p. m.', text: 'Claro. Recibimos mascotas pequeñas sin costo adicional.' },
-    { who: 'client', time: '11:48 p. m.', text: 'Perfecto, quiero reservar.' },
+    { who: 'client', time: '11:47 p. m.', text: '¿Puedo llevar a mi perro? 🐶' },
+    { who: 'soly', time: '11:47 p. m.', text: '¡Claro! 🐾 Recibimos mascotas pequeñas sin costo adicional.' },
+    { who: 'client', time: '11:48 p. m.', text: 'Perfecto, quiero reservar 😊' },
     { who: 'soly', time: '11:48 p. m.', text: '¡Listo! Te paso con recepción para confirmar. Ya tienen tus fechas y te escriben en unos minutos.' },
     { who: 'handoff', text: 'Pasada a recepción · con contexto' },
   ],
