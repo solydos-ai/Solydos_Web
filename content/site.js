@@ -12,7 +12,7 @@ export const HERO = {
     'En Solydos creamos a Soly, un agente de IA que atiende a tus clientes por WhatsApp con la información de tu negocio. Nosotros lo configuramos y lo entrenamos por ti.',
 }
 
-// Demo en vivo del cierre: un hotel atendido por Soly de noche. Solo lo que Soly hace hoy (sin agendar).
+// Demo en vivo del cierre: ejemplo de cómo Soly respondería a un hotel de noche. Es solo un ejemplo (los emoji son a propósito, para que parezca un chat real de WhatsApp). Soly responde dudas, agenda citas y pasa a una persona cuando hace falta; esta demo muestra una parte.
 export const CHAT = {
   live: 'En vivo · Soly responde',
   business: 'Hotel Brisa Marina',
