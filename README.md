@@ -4,7 +4,7 @@ Landing de Solydos (`https://solydos.com`): presenta a Soly, el agente de IA que
 
 El agente y el dashboard viven en otro repositorio, `wh-bot`. Esta página solo enlaza a ellos:
 
-- **"Habla con Soly"** abre WhatsApp con el número del agente.
+- **"Escríbele a Soly por WhatsApp"** (botón verde de WhatsApp) abre WhatsApp con el número del agente.
 - **"Ingresar"** lleva al dashboard, en `https://app.solydos.com`.
 
 ## Desarrollo

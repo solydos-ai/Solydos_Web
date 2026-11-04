@@ -1,7 +1,7 @@
 import Header from '@/components/ui/Header'
-import Button from '@/components/ui/Button'
 import Icon from '@/components/ui/Icon'
 import WhatsAppLogo from '@/components/ui/WhatsAppLogo'
+import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import Hero from '@/components/sections/Hero'
 import Steps from '@/components/sections/Steps'
 import Footer from '@/components/sections/Footer'
@@ -9,7 +9,7 @@ import ChatDemo from '@/components/sections/ChatDemo'
 import Pains from '@/components/sections/Pains'
 import Marquee from '@/components/sections/Marquee'
 import { ContourField, ContourRule, Station } from '@/components/sections/Decor'
-import { GUARANTEES, SOLY_URL } from '@/content/site'
+import { GUARANTEES } from '@/content/site'
 
 const Accent = ({ children }) => <span className="lp-accent">{children}</span>
 
@@ -56,7 +56,7 @@ export default function Page() {
                 <h2 className="ed-cta-title">Mira a <span>Soly</span> respondiendo por ti.</h2>
                 <p className="ed-sub">Son las 11:47 p. m. y la recepción del hotel ya cerró. Soly no: responde precios y dudas al instante, y le pasa la reserva a tu equipo con todo el contexto.</p>
                 <div className="ed-cta-actions">
-                  <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
+                  <WhatsAppButton />
                 </div>
               </div>
               <ChatDemo />
@@ -67,7 +67,7 @@ export default function Page() {
               <Steps />
               <div className="ed-end">
                 <p className="ed-end-text">Ya llegaste a la cima. <span>Ahora háblale a Soly.</span></p>
-                <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
+                <WhatsAppButton />
               </div>
             </div>
           </div></div>

@@ -131,7 +131,8 @@ body { background-color: var(--background); }
 .lp-demo { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
 .lp-demo-stage { position: relative; width: 100%; margin-top: calc(-1 * var(--space-4)); margin-bottom: -10%; }
 .lp-demo-stage .sd-specimen { pointer-events: none; }
-.lp-soly { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 100%; max-width: 460px; text-align: center; }
+/* Wider than the rock's column (centered overflow): the WhatsApp button and its help read on one or two lines */
+.lp-soly { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: min(calc(100vw - 32px), 460px); text-align: center; }
 .lp-soly .sd-btn { min-height: 44px; }
 .lp-soly .ed-demo-label { padding: 2px 10px; background: var(--background); }
 .lp-demo-pill { position: absolute; z-index: 2; display: inline-flex; gap: 5px; padding: 11px 15px; border: 1px solid var(--text-primary); border-radius: var(--radius-full); background: var(--surface); color: var(--signal); opacity: 0; }
@@ -139,7 +140,7 @@ body { background-color: var(--background); }
 .ed-pulse { position: absolute; z-index: 1; left: 56.5%; top: 63%; width: 62%; aspect-ratio: 1; border: 1.5px solid var(--signal); border-radius: 50%; transform: translate(-50%,-50%) scale(0); opacity: 0; pointer-events: none; }
 .sd-sp-line, .sd-sp-trace { transition: stroke-width .4s ease; }
 .sd-sp-rock { transition: filter .5s ease; }
-/* Hover o foco en "Habla con Soly": la roca se enciende */
+/* Hover o foco en el botón de WhatsApp: la roca se enciende */
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-line { stroke-width: 1.9; }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-dotted { stroke-width: 2.6; }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-trace { stroke-width: 2.6; }
@@ -490,3 +491,11 @@ html.ed .lp-demo-stage { animation:ed-float 7s ease-in-out infinite; }
 .sd-header .sd-header-inner { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: var(--hero-col-gap); }
 .sd-header .sd-header-live, .sd-header .sd-header-actions { grid-column: 2; }
 }
+
+/* Botón que abre WhatsApp: la única excepción al acento único (decisión SOL-47). Verde de WhatsApp, la señal que la
+   gente ya reconoce como "abre el chat"; texto oscuro para el contraste (7:1 o más). Igual en los dos temas. */
+:root { --whatsapp:#25D366; --whatsapp-hover:#1ebe5a; --on-whatsapp:#0b1f14; }
+.sd-btn.sd-btn-whatsapp { gap:var(--space-3); min-height:56px; padding:14px 28px 14px 22px; background:var(--whatsapp); color:var(--on-whatsapp); font-size:13px; }
+.sd-btn.sd-btn-whatsapp:hover { background:var(--whatsapp-hover); }
+.sd-btn-whatsapp .lp-wa-logo { flex:none; }
+@media (max-width:480px) { .sd-btn.sd-btn-whatsapp { align-self:stretch; width:100%; justify-content:center; padding:14px 18px; font-size:12px; white-space:normal; } }

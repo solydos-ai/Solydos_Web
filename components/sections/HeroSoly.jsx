@@ -1,7 +1,7 @@
 import Specimen from '../ui/Specimen'
-import Button from '../ui/Button'
+import WhatsAppButton from '../ui/WhatsAppButton'
 import PauseOffscreen from '../ui/PauseOffscreen'
-import { SOLY_URL } from '@/content/site'
+import { SOLY_CTA } from '@/content/site'
 
 // Burbujas de "escribiendo…" alrededor de la roca: la roca habla.
 const TALK = [{ left: '0%', top: '20%' }, { right: '0%', top: '38%' }, { left: '4%', top: '56%' }]
@@ -19,8 +19,8 @@ export default function HeroSoly() {
       </div>
       <div className="lp-soly">
         <p className="ed-demo-label">Soly · el agente de Solydos</p>
-        <Button href={SOLY_URL} icon="arrow" target="_blank" rel="noopener">Habla con Soly</Button>
-        <p className="lp-soly-help">Escríbele por WhatsApp como lo haría uno de tus clientes.</p>
+        <WhatsAppButton />
+        <p className="lp-soly-help">{SOLY_CTA.help}</p>
       </div>
     </PauseOffscreen>
   )
