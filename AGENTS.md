@@ -20,6 +20,7 @@ npm run build   # genera ./out
 - **Los textos se editan en `content/site.js`**, no en los componentes.
 - **Publicar = push a `main`.** Amplify corre `npm ci`, lint y build, y publica `out/`. Corre lint y build antes de hacer push.
 - **Copy:** español neutro de tú, titulares cortos, sin exclamaciones, sin "gratis" ni "Entrar". Solo cifras reales con su fuente. La conversación de la demo (`CHAT`) es la excepción: usa emoji y exclamaciones a propósito.
+- **Issue de Linear:** el trabajo se sigue en Linear (equipo `SOL`). La rama, el título del PR o el commit llevan el ID (`SOL-9`), así Linear enlaza el cambio y mueve el issue solo.
 - **No prometer lo que el producto no hace hoy.** Qué existe y qué no: `docs/14-estado-y-pendientes.md` en `solydos-context`.
 - **Diseño:** esta web es la fuente de verdad del sistema de diseño de Solydos (`app/globals.css`, `components/`). Si cambias tokens o componentes, la copia de referencia en `wh-bot/.claude/skills/solydos-design-system/references/` también debe actualizarse.
 - **Dos temas siempre** (claro y oscuro), responsive desde 375px y `prefers-reduced-motion` respetado.
