@@ -7,9 +7,9 @@ import { SOLY_CTA, SOLY_URL } from '@/content/site'
 export default function WhatsAppButton() {
   return (
     <a href={SOLY_URL} target="_blank" rel="noopener" className="sd-btn sd-btn-whatsapp">
-      <span className="sd-btn-wa-logo"><WhatsAppLogo size={24} color="currentColor" /></span>
+      <span className="sd-btn-wa-logo"><WhatsAppLogo size={20} color="currentColor" /></span>
       <span>{SOLY_CTA.label}</span>
-      <Icon name="arrow" size={20} />
+      <Icon name="arrow" size={18} />
     </a>
   )
 }
