@@ -4,7 +4,7 @@ import StickyHeader from './StickyHeader'
 
 // Logo y rótulo de la hoja a la izquierda; Soly en línea e Ingresar a la derecha.
 // En escritorio la cabecera usa las mismas columnas que el hero: "Soly en línea" queda centrado justo encima de la roca.
-// "Habla con Soly" no va aquí: está debajo de la roca. En móvil solo quedan el logo e Ingresar.
+// El botón de WhatsApp no va aquí: está debajo de la roca. En móvil solo quedan el logo e Ingresar.
 export default function Header({ cta }) {
   return (
     <StickyHeader>

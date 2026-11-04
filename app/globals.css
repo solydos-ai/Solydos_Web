@@ -131,7 +131,8 @@ body { background-color: var(--background); }
 .lp-demo { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
 .lp-demo-stage { position: relative; width: 100%; margin-top: calc(-1 * var(--space-4)); margin-bottom: -10%; }
 .lp-demo-stage .sd-specimen { pointer-events: none; }
-.lp-soly { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 100%; max-width: 460px; text-align: center; }
+/* Wider than the rock's column (centered overflow): the WhatsApp button and its help read on one or two lines */
+.lp-soly { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: min(calc(100vw - 32px), 460px); text-align: center; }
 .lp-soly .sd-btn { min-height: 44px; }
 .lp-soly .ed-demo-label { padding: 2px 10px; background: var(--background); }
 .lp-demo-pill { position: absolute; z-index: 2; display: inline-flex; gap: 5px; padding: 11px 15px; border: 1px solid var(--text-primary); border-radius: var(--radius-full); background: var(--surface); color: var(--signal); opacity: 0; }
@@ -139,7 +140,7 @@ body { background-color: var(--background); }
 .ed-pulse { position: absolute; z-index: 1; left: 56.5%; top: 63%; width: 62%; aspect-ratio: 1; border: 1.5px solid var(--signal); border-radius: 50%; transform: translate(-50%,-50%) scale(0); opacity: 0; pointer-events: none; }
 .sd-sp-line, .sd-sp-trace { transition: stroke-width .4s ease; }
 .sd-sp-rock { transition: filter .5s ease; }
-/* Hover o foco en "Habla con Soly": la roca se enciende */
+/* Hover o foco en el botón de WhatsApp: la roca se enciende */
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-line { stroke-width: 1.9; }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-dotted { stroke-width: 2.6; }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-trace { stroke-width: 2.6; }
@@ -490,3 +491,23 @@ html.ed .lp-demo-stage { animation:ed-float 7s ease-in-out infinite; }
 .sd-header .sd-header-inner { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: var(--hero-col-gap); }
 .sd-header .sd-header-live, .sd-header .sd-header-actions { grid-column: 2; }
 }
+
+/* Botón que abre WhatsApp: la única excepción al acento único (decisión SOL-47). Verde de WhatsApp, la señal que la
+   gente ya reconoce como "abre el chat"; texto oscuro para el contraste (7:1 o más). Letra de texto, no de rótulo:
+   se lee como un botón de chat. Igual en los dos temas. */
+:root { --whatsapp:#25D366; --whatsapp-hover:#1ebe5a; --on-whatsapp:#0b1f14; }
+.sd-btn.sd-btn-whatsapp { position:relative; isolation:isolate; gap:8px; min-height:40px; padding:6px 16px 6px 12px; background:var(--whatsapp); color:var(--on-whatsapp); font-family:var(--font-sans); font-size:15px; line-height:1.2; font-weight:600; letter-spacing:0; text-transform:none; transition:background-color var(--duration) cubic-bezier(.2,.7,.2,1), transform var(--duration) cubic-bezier(.2,.7,.2,1); }
+.sd-btn.sd-btn-whatsapp:hover { background:var(--whatsapp-hover); transform:translateY(-2px); }
+.sd-btn.sd-btn-whatsapp:active { transform:translateY(0) scale(.98); }
+.sd-btn-whatsapp .sd-btn-wa-logo { display:grid; place-items:center; flex:none; }
+.sd-btn-whatsapp .sd-icon { flex:none; stroke-width:2; }
+/* The ring that "breathes" around the button, behind it */
+.sd-btn-whatsapp::before { content:""; position:absolute; inset:0; z-index:-1; border:1.5px solid var(--whatsapp); border-radius:inherit; opacity:0; pointer-events:none; }
+@media (prefers-reduced-motion: no-preference) {
+  .sd-btn-whatsapp::before { animation:wa-ring 2.8s cubic-bezier(.2,.7,.2,1) infinite; }
+  .sd-btn-whatsapp .sd-btn-wa-logo svg { animation:wa-nudge 4.2s ease-in-out infinite; transform-origin:50% 60%; }
+  .sd-btn-whatsapp:hover .sd-btn-wa-logo svg { animation-duration:1.4s; }
+}
+@keyframes wa-ring { 0% { inset:0; opacity:.75; } 70%, 100% { inset:-7px; opacity:0; } }
+@keyframes wa-nudge { 0%, 78%, 100% { transform:none; } 84% { transform:rotate(-14deg) scale(1.08); } 90% { transform:rotate(10deg) scale(1.08); } 95% { transform:rotate(-4deg); } }
+@media (max-width:480px) { .sd-btn.sd-btn-whatsapp { align-self:stretch; width:100%; justify-content:center; padding:6px 14px 6px 10px; font-size:14px; white-space:normal; } }

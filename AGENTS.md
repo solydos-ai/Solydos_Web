@@ -4,7 +4,7 @@ Landing de Solydos (`https://solydos.com`): presenta a Soly y lleva al visitante
 
 El agente y el panel viven en el repo `wh-bot`. La documentación de todo el sistema vive en [`Solydos-ai/solydos-context`](https://github.com/Solydos-ai/solydos-context) (la de esta web: `docs/07-web-publica.md`). Esta web solo enlaza a ellos:
 
-- **"Habla con Soly"** abre WhatsApp con el número de `NEXT_PUBLIC_SOLY_WA_NUMBER` (por defecto, el de producción en `content/site.js`).
+- **"Escríbele a Soly por WhatsApp"** (botón verde, `WhatsAppButton`) abre WhatsApp con el número de `NEXT_PUBLIC_SOLY_WA_NUMBER` (por defecto, el de producción en `content/site.js`).
 - **"Ingresar"** lleva al panel, en `https://app.solydos.com`.
 
 ## Comandos

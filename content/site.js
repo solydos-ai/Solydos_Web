@@ -5,6 +5,13 @@ const SOLY_NUMBER = process.env.NEXT_PUBLIC_SOLY_WA_NUMBER || '573246800107'
 
 export const SOLY_URL = `https://wa.me/${SOLY_NUMBER}?text=` + encodeURIComponent('Hola, Soly')
 
+// El botón que abre WhatsApp (debajo de la roca, en "Empieza" y al final). Dice a dónde lleva: la gente no
+// entendía que "Habla con Soly" abría un chat.
+export const SOLY_CTA = {
+  label: 'Escríbele a Soly por WhatsApp',
+  help: 'Se abre tu WhatsApp con el mensaje listo. Escríbele como lo haría uno de tus clientes.',
+}
+
 export const HERO = {
   // [nombre, qué es]: se muestran en la cápsula del hero con el logo de WhatsApp
   kicker: ['Soly', 'Agente de IA para tu negocio'],
