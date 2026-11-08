@@ -12,7 +12,8 @@ const Checks = () => (
 )
 
 // La roca viva y la invitación a escribirle a Soly. Al pasar por el botón, la roca se enciende.
-// De la roca sale una conversación de WhatsApp de tres mensajes, uno tras otro, en bucle (al pasar por el botón se quedan quietos).
+// De la roca sale una conversación de WhatsApp: el cliente saluda, Soly escribe y responde (el check del saludo
+// se pone azul), el cliente pregunta; luego se van uno por uno y vuelve a empezar.
 // Debajo: el botón y los tres pasos, para que sea obvio que abre WhatsApp.
 export default function HeroSoly() {
   // Fuera de pantalla las animaciones de la roca se pausan: no gastan batería ni traban el scroll en el celular
@@ -23,11 +24,13 @@ export default function HeroSoly() {
         <span className="ed-pulse" aria-hidden="true" />
         <span className="ed-pulse" aria-hidden="true" />
         <div className="lp-rock-chat" aria-hidden="true">
-          {ROCK_CHAT.map(([who, text]) => (
-            <span key={text} className={`lp-rock-bubble is-${who}`}>
+          {ROCK_CHAT.map(([who, text], i) => (
+            <span key={text} className={`lp-rock-bubble is-${who} is-m${i + 1}`}>
               {text}<small>ahora{who === 'client' && <Checks />}</small>
             </span>
           ))}
+          {/* Soly "escribiendo…" antes de responder, en el lugar de su mensaje */}
+          <span className="lp-rock-bubble is-soly lp-rock-typing"><i /><i /><i /></span>
         </div>
       </div>
       <div className="lp-soly">

@@ -148,28 +148,39 @@ body { background-color: var(--background); }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-trace { stroke-width: 2.6; }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-chip { fill: var(--signal-on-stone); }
 .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .sd-sp-rock { filter: drop-shadow(18px 22px 16px var(--rock-shadow)) drop-shadow(0 0 26px color-mix(in srgb, var(--signal) 60%, transparent)) brightness(1.15); }
-/* La conversación que sale de la roca: el cliente a la derecha en verde, Soly a la izquierda en blanco, como en WhatsApp.
-   Los tres mensajes salen uno tras otro (cada 1,4 s), se quedan y se van juntos; el ciclo dura 9 s.
-   Al pasar por el botón se quedan quietos. Sin movimiento si el sistema lo pide: se ven fijos. */
+/* La conversación que sale de la roca, como en WhatsApp: el cliente a la derecha en verde, Soly a la izquierda en blanco.
+   Ciclo de 10 s: llega el saludo (0 s), Soly escribe (1,2 s) y responde (2,6 s) y el check del saludo se pone azul,
+   llega la pregunta (4 s); a los 8 s se van uno por uno y vuelve a empezar. Cada burbuja entra con un pequeño rebote
+   desde su esquina. Sin movimiento si el sistema lo pide: se ven los tres mensajes fijos. */
 .lp-rock-chat { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .lp-rock-bubble { position: absolute; display: inline-flex; align-items: baseline; gap: 8px; max-width: 220px; padding: 7px 10px 7px 12px; border-radius: 12px; font-size: 14px; line-height: 1.3; white-space: nowrap; box-shadow: 0 1px 2px #0b1f1424, 0 6px 18px #16151414; }
 .lp-rock-bubble small { display: inline-flex; align-items: center; gap: 3px; font-size: 10.5px; color: var(--text-muted); }
 .lp-rock-bubble svg { color: #53bdeb; }
-.lp-rock-bubble.is-client { background: var(--wa-bubble); color: var(--wa-bubble-ink); border-top-right-radius: 3px; }
-.lp-rock-bubble.is-soly { background: var(--wa-soly); color: var(--wa-bubble-ink); border-top-left-radius: 3px; }
-.lp-rock-bubble:nth-child(1) { right: -14%; top: 12%; }
-.lp-rock-bubble:nth-child(2) { left: -22%; top: 36%; }
-.lp-rock-bubble:nth-child(3) { right: -20%; top: 60%; }
+.lp-rock-bubble.is-client { background: var(--wa-bubble); color: var(--wa-bubble-ink); border-top-right-radius: 3px; transform-origin: 100% 0; }
+.lp-rock-bubble.is-soly { background: var(--wa-soly); color: var(--wa-bubble-ink); border-top-left-radius: 3px; transform-origin: 0 0; }
+.lp-rock-bubble.is-m1 { right: -14%; top: 12%; }
+.lp-rock-bubble.is-m2, .lp-rock-typing { left: -22%; top: 36%; }
+.lp-rock-bubble.is-m3 { right: -20%; top: 60%; }
+.lp-rock-typing { display: none; align-items: center; gap: 4px; padding: 11px 14px; }
+.lp-rock-typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); }
 @media (prefers-reduced-motion: no-preference) {
-  .lp-rock-bubble { opacity: 0; animation: 9s cubic-bezier(.2,.7,.2,1) 1.2s infinite; }
-  .lp-rock-bubble:nth-child(1) { animation-name: lp-chat-1; transform-origin: 100% 0; }
-  .lp-rock-bubble:nth-child(2) { animation-name: lp-chat-2; transform-origin: 0 0; }
-  .lp-rock-bubble:nth-child(3) { animation-name: lp-chat-3; transform-origin: 100% 0; }
-  .lp-demo:has(.lp-soly .sd-btn:is(:hover, :focus-visible)) .lp-rock-bubble { animation: none; opacity: 1; }
+  /* Propiedades sueltas, no el atajo `animation` sin nombre: el CSS de Next 16 lo descarta y la duración queda en 0 */
+  .lp-rock-bubble { opacity: 0; animation-duration: 10s; animation-timing-function: cubic-bezier(.2,.7,.2,1); animation-delay: 1s; animation-iteration-count: infinite; }
+  .lp-rock-bubble.is-m1 { animation-name: lp-chat-1; }
+  .lp-rock-bubble.is-m2 { animation-name: lp-chat-2; }
+  .lp-rock-bubble.is-m3 { animation-name: lp-chat-3; }
+  .lp-rock-typing { display: inline-flex; animation-name: lp-chat-typing; }
+  .lp-rock-typing i { animation: ed-blink 1s ease-in-out infinite; }
+  .lp-rock-typing i:nth-child(2) { animation-delay: .15s; }
+  .lp-rock-typing i:nth-child(3) { animation-delay: .3s; }
+  .lp-rock-bubble.is-m1 svg { animation: lp-chat-read 10s step-end 1s infinite; }
+  .lp-rock-bubble.is-m3 svg { color: #8c9a92; }
 }
-@keyframes lp-chat-1 { 0% { opacity: 0; transform: translateY(10px) scale(.85); } 4%, 78% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; transform: translateY(-6px); } }
-@keyframes lp-chat-2 { 0%, 16% { opacity: 0; transform: translateY(10px) scale(.85); } 20%, 78% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; transform: translateY(-6px); } }
-@keyframes lp-chat-3 { 0%, 32% { opacity: 0; transform: translateY(10px) scale(.85); } 36%, 78% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes lp-chat-1 { 0% { opacity: 0; transform: translateY(14px) scale(.6); } 3% { opacity: 1; transform: scale(1.05); } 5%, 78% { opacity: 1; transform: none; } 83%, 100% { opacity: 0; transform: translateY(-10px) scale(.95); } }
+@keyframes lp-chat-typing { 0%, 11% { opacity: 0; transform: scale(.6); } 13% { opacity: 1; transform: scale(1.05); } 14%, 24% { opacity: 1; transform: none; } 26%, 100% { opacity: 0; transform: scale(.8); } }
+@keyframes lp-chat-2 { 0%, 25% { opacity: 0; transform: translateY(8px) scale(.85); } 28% { opacity: 1; transform: scale(1.04); } 30%, 80% { opacity: 1; transform: none; } 85%, 100% { opacity: 0; transform: translateY(-10px) scale(.95); } }
+@keyframes lp-chat-3 { 0%, 39% { opacity: 0; transform: translateY(14px) scale(.6); } 42% { opacity: 1; transform: scale(1.05); } 44%, 82% { opacity: 1; transform: none; } 87%, 100% { opacity: 0; transform: translateY(-10px) scale(.95); } }
+@keyframes lp-chat-read { 0% { color: #8c9a92; } 26% { color: #53bdeb; } }
 .lp-soly-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; margin: 0; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 10.5px; line-height: 16px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
 .lp-soly-steps li { display: inline-flex; align-items: center; gap: 6px; }
 .lp-soly-steps b { color: var(--signal); font-weight: 600; }
