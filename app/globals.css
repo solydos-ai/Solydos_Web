@@ -511,3 +511,21 @@ html.ed .lp-demo-stage { animation:ed-float 7s ease-in-out infinite; }
 @keyframes wa-ring { 0% { inset:0; opacity:.75; } 70%, 100% { inset:-7px; opacity:0; } }
 @keyframes wa-nudge { 0%, 78%, 100% { transform:none; } 84% { transform:rotate(-14deg) scale(1.08); } 90% { transform:rotate(10deg) scale(1.08); } 95% { transform:rotate(-4deg); } }
 @media (max-width:480px) { .sd-btn.sd-btn-whatsapp { align-self:stretch; width:100%; justify-content:center; padding:6px 14px 6px 10px; font-size:14px; white-space:normal; } }
+
+/* The panel's background gradient down the whole page, without its second blue halo:
+   blue at the top left (behind the Solydos name) and the warm halo at the bottom, fixed like in the app. */
+:root { --halo-1: rgba(36,69,201,.11); --halo-3: rgba(232,170,120,.16); }
+:root[data-theme="dark"] { --halo-1: rgba(142,162,255,.085); --halo-3: rgba(232,170,120,.06); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --halo-1: rgba(142,162,255,.085); --halo-3: rgba(232,170,120,.06); } }
+body, html.ed body {
+  background-color: var(--background);
+  background-image: radial-gradient(46% 36% at 12% 6%, var(--halo-1), transparent 100%), radial-gradient(44% 32% at 74% 88%, var(--halo-3), transparent 100%);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.ed-fline { opacity: .17; }
+.ed-fline.is-dot { opacity: .28; }
+:root[data-theme="dark"] .ed-fline { opacity: .1; }
+:root[data-theme="dark"] .ed-fline.is-dot { opacity: .18; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ed-fline { opacity: .1; } :root:not([data-theme="light"]) .ed-fline.is-dot { opacity: .18; } }
