@@ -519,7 +519,7 @@ html.ed .lp-demo-stage { animation:ed-float 7s ease-in-out infinite; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --halo-1: rgba(142,162,255,.085); --halo-3: rgba(232,170,120,.06); } }
 body, html.ed body {
   background-color: var(--background);
-  background-image: radial-gradient(46% 36% at 12% 6%, var(--halo-1), transparent 100%), radial-gradient(44% 32% at 74% 88%, var(--halo-3), transparent 100%);
+  background-image: radial-gradient(34.5% 27% at 12% 6%, var(--halo-1), transparent 100%), radial-gradient(44% 32% at 74% 88%, var(--halo-3), transparent 100%);
   background-size: auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
